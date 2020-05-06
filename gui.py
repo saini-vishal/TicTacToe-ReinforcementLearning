@@ -13,12 +13,10 @@ class GUI:
         for i in range(0, len(board)):
             x = int(i / 3)
             y = int(i % 3)
-            handler = lambda x=x, y=y: self.move(x, y)
-            button = Button(self.app, command=handler, font=self.font, width=2, height=1)
+            button = Button(self.app, font=self.font, width=2, height=1)
             button.grid(row=y, column=x)
             self.buttons[x, y] = button
-        handler = lambda: self.reset()
-        button = Button(self.app, text='reset', command=handler)
+        button = Button(self.app, text='reset')
         button.grid(row=3, column=0, columnspan=3, sticky="WE")
         self.update(board, [None, None, None], False)
 
